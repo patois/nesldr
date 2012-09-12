@@ -1,0 +1,14 @@
+	credits:
+	--------
+    - Sebastian Porst for his valuable hints
+    - \Firebug\ for his "Comprehensive NES Mapper Document v0.80
+      by \Firebug\"
+    - the I/O register information is taken from the
+      "Nintendo Entertainment System Documentation Version 2.0"
+      (nestech.txt) - I don't know who wrote it - thank you
+      for the great information!
+    - this loader is based on a lot of excellent reading
+	    material, actually too much to name it here. Most of
+      the material can be found at http://nesdev.parodius.com 
+      
+  (c) 2006, Dennis Elser (dennis@backtrace.de)      

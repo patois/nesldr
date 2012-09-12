@@ -1,0 +1,162 @@
+/*
+
+	Nintendo Entertainment System (NES) loader module
+	------------------------------------------------------
+	Copyright 2006, Dennis Elser (dennis@backtrace.de)
+
+*/
+
+
+#ifndef _MAPPERS_H
+#define _MAPPERS_H
+
+
+
+
+#define MAPPER_NOT_SUPPORTED "mapper unknown/not supported"
+
+char *mapper_names[] = {
+    "no mapper used",
+    "MMC 1",
+    "UNROM",
+    "CNROM",
+    "MMC 3",
+    "MMC 5",
+    "FFE F4xxx",
+    "AOROM",
+    "FFE F3xxx",
+    "MMC 2",
+    "MMC 4",
+    "Color Dreams",
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    "100 in 1",
+    "Bandai",
+    "FFE F8xxx",
+    "Jaleco SS8806",
+    "Namcot 106",
+    MAPPER_NOT_SUPPORTED,
+    "Konami VRC4",
+    "Konami VRC2 Type A",
+    "Konami VRC2 Type B",
+    "Konami VRC6",
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    "Irem G 101",
+    "Taito TC0190",
+    "Nina 1",
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    "Tengen Rambo 1",
+    "Irem H 3001",
+    "GNROM",
+    MAPPER_NOT_SUPPORTED,
+    "Sunsoft Mapper 4",
+    "Sunsoft FME7",
+    MAPPER_NOT_SUPPORTED,
+    "Camerica",
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    "Irem 74HC161 32",
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    MAPPER_NOT_SUPPORTED,
+    "HK SF3"
+};
+
+
+enum
+{
+    MAPPER_NONE                     = 0,
+    MAPPER_MMC1,
+    MAPPER_UNROM,
+    MAPPER_CNROM,
+    MAPPER_MMC3,
+    MAPPER_MMC5,
+    MAPPER_FFE_F4XXX,
+    MAPPER_AOROM,
+    MAPPER_FFE_F3XXX,
+    MAPPER_MMC2,
+    MAPPER_MMC4,
+    MAPPER_COLOR_DREAMS,
+
+    MAPPER_100_IN_1                 = 15,
+    MAPPER_BANDAI,
+    MAPPER_FFE_F8XXX,
+    MAPPER_JALECO_SS8806,
+    MAPPER_NAMCOT_106,
+
+    MAPPER_KONAMI_VRC4              = 21,
+    MAPPER_KONAMI_VRC2_TYPE_A,
+    MAPPER_KONAMI_VRC2_TYPE_B,
+    MAPPER_KONAMI_VRC6,
+
+    MAPPER_IREM_G_101               = 32,
+    MAPPER_TAITO_TC0190,
+    MAPPER_NINA_1,
+    
+    MAPPER_TENGEN_RAMBO_1           = 64,
+    MAPPER_IREM_H_3001,
+    MAPPER_GNROM,
+
+    MAPPER_SUNSOFT_MAPPER_4         = 68,
+    MAPPER_SUNSOFT_FME7,
+
+    MAPPER_CAMERICA                 = 71,
+
+    MAPPER_IREM_74HC161_32          = 78,
+
+    MAPPER_HK_SF3                   = 91,
+
+
+};
+
+#define MAPPER_LAST                 91
+
+#endif // _MAPPERS_H

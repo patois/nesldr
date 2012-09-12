@@ -1,0 +1,34 @@
+	known bugs:
+	-----------
+
+    - if ROM images are not aligned properly (see nes.h),
+  	  the loader won't load the ROM correctly. Also, if
+	    actually less pages than given in the iNES header
+	    are present in the ROM, the loader will fail.
+	    I am too lazy to fix this at the moment.
+	    It doesn't make sense to disassemble corrupt ROM images
+      anyway ;)
+
+    - the loader doesn't initialize RAM
+    
+    - exp rom is not supported yet
+
+    - not all mappers have been tested, please email me if
+      you experience any problems
+
+	  - swapping banks is not supported, this will most probably
+      be done with a plugin.
+
+    - nmi, reset and irq vectors aren't checked to be within
+      PGR rom area - this isn't a must, but it could detect
+      modified, patched or invalid ROM images.
+
+    - if both SRAM and a trainer are present, the loader
+      only creates an SRAM segment (the trainer is mapped
+      to a part of the SRAM segment)
+      
+
+    Please send me an e-mail if you find any bugs or have
+    suggestions for improvements!
+
+	(c) 2006, Dennis Elser (dennis@backtrace.de)

@@ -1,0 +1,170 @@
+	history:
+	--------
+
+        2006-Sep-28 version 0.24b - beta 1 build 3
+        -------------------------
+        - SRAM segment is now always created. I have partly
+          reverse engineered a game which uses SRAM to store
+          some flags, although there is SRAM available
+          in the cartridge. (Maybe I should grab some more up
+          to date documents on the NES?)
+
+
+        2006-Sep-22 version 0.24b - beta 1 build 2
+        -------------------------
+        - inf.filetype is not set anymore (deprecated).
+          get_loader_name() will be used instead for a
+          possible bank switching plugin to determine the
+          filetype
+          
+
+        2006-Sep-21 version 0.24b - beta 1
+        -------------------------
+        - when a corrupted NES image is detected, a dialog box
+          is shown, asking the user whether to fix the header or
+          not
+        - store_chr_rom_pages() and store_prg_rom_pages() are fixed
+        - sourcecode restructured / added prototypes for every function
+        - added convenience functions, making the source more readable
+        - renamed all "store_..." functions to "save_..._as_blob()"
+        - fixed a memory leak in save_trainer_as_blob()
+        - save_ines_hdr_as_blob( ines_hdr *hdr) changed to
+          save_ines_hdr_as_blob( void )
+        - load_chr_rom_bank() is more verbose (reminder ;)
+        - load_trainer() is more verbose
+        - entrypoint is set to RESET_VECTOR_START_ADDRESS
+        - moved mapper enum and char *mapper_names[] to mappers.h
+        
+
+        2006-Sep-19 version 0.23b - beta 1
+        -------------------------
+        - fixed a bug in get_vector()
+        - removed vector_t
+        - removed v_ constants from nes.h
+        - vector comments are removed
+        - GNROM mappers don't seem to load the first two
+          PRG pages, they now load the first and the last.
+          I probably should get a more up to date document
+          on mappers
+        - segments are now patchable, this means the file
+          offset is shown below IDA's disassembly as well
+        - added fix_ines_hdr()
+        - added mapper names and helper function get_mapper_name()
+        
+
+        2006-Sep-18 version 0.21b
+        -------------------------
+        - added PPU RAM layout to nes.h
+        - fixed bug in load_chr_rom_bank()
+        - temporarily "disabled" load_chr_rom_bank(), PPU is
+          not fully supported, yet
+        - renamed some functions
+        - commented the code a bit more
+
+
+        2006-Sep-15 version 0.20b
+        -------------------------
+        - removed load_prg_rom_pages() and load_chr_rom_pages()
+        - added load_prg_rom_bank() and load_chr_rom_bank()
+        - added identifiers for some mappers
+        - began adding support for known mappers by
+          implementing load_rom_image(), which is a wrapper
+          for load_prg_rom_bank() and load_chr_rom_bank().
+          ROM images with known mappers should now correctly
+          be loaded
+          
+
+        2006-Sep-14 version 0.17b
+        -------------------------
+        - source code has been restructured
+        - all relevant NES/ROM segments are now created,
+          but not all segments are being initialized.
+          expansion rom segment is always created.
+        - ioregs.h has been added to the project
+        - I/O registers are now named and commented,
+          the disassembly is now pretty readable!
+        - added store_trainer(), store_prg_rom_pages()
+          and store_chr_rom_pages() - those functions
+          store (together with the already available
+          store_ines_hdr() function) the whole original
+          file inside the IDA database. This allows virtual
+          bank/page swapping as well as output file generation
+          from an external plugin.
+
+
+        2006-Sep-12 version 0.16b
+        -------------------------
+        - vectors are now commented with their respective file offsets.
+          This is useful for "hooking" vectors (trainer development etc.)
+
+
+        2006-Sep-11 version 0.15b
+        -------------------------
+        - trainers are supported (tested on my own trainer
+          that I've coded for a game today - it patches
+          the NMI vector to jump to $7000 - where trainers are mapped to.
+          I don't know about other trainers, since I haven't seen
+          any trainers "in the wild".
+
+
+        2006-Sep-10 version 0.14b build 2
+        -------------------------
+        - fixed is_corrupt_ines_hdr()
+        - loading of CHR ROM pages is currently limited
+          to loading the first CHR ROM page at CHR_ROM_START_ADDRESS
+        - added add_entry_points() and name_vectors()
+        - added void create_sram_page(), SRAM virtually
+          supported, but untested
+
+
+        2006-Sep-09 version 0.14b
+        -------------------------
+        - added sanity checks
+        - nes.h: added vector_t
+        - nes.cpp: renamed get_reset_vector() to
+          get_vector()
+        - IRQ and NMI routines are now exported as
+          entrypoints (public names) as well
+
+    
+        2006-Sep-08 version 0.13b
+        -------------------------
+        - added get_reset_vector() : entrypoint now equals
+          the address of the reset vector (stored inside
+          the last PRG ROM page?!)
+        - load_prg_rom_pages() temporarily loads a maximum
+          of two pages - possibly until all mappers are
+          supported
+        - changed load_prg_rom_pages() and load_chr_rom_pages()
+          to temporarily create nonpatchable segments
+
+
+        2006-Sep-03 version 0.12b
+        -------------------------
+        - added a check for corrupted iNES headers
+        - added a check for presence of a trainer
+        - added INES_MASK_... macros to nes.h
+        - added dumpidb.idc to package
+
+
+		    2006-Sep-02 version 0.11b
+		    -------------------------
+		    - added support for CHR-ROM pages
+		    - ROM image is now completely loaded
+		      into IDA so it can be reassembled
+		      (in theory, I didn't have the chance
+		      to try it yet)
+		    - trainers are not supported yet as
+		      I don't have any ROM images containing
+		      trainers
+		    - commenting, code cleanup and bugfixes.
+		      bedtime, 4:30 am
+
+
+		    2006-Sep-01 version 0.1b
+		    ------------------------
+		    - initial version
+		    
+  
+  
+  (c) 2006, Dennis Elser (dennis@backtrace.de)		    
